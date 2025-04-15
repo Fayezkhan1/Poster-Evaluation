@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Resolution Details</title>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            color: #1a1a1a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            width: 90%;
+            max-width: 900px;
+            background: white;
+            padding: 2vh;
+            border-radius: 1.5vh;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        .card {
+            background: white;
+            padding: 2vh;
+            border-radius: 1.5vh;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+        }
+        .card h2 {
+            font-size: 2vh;
+            color: #0a3d91;
+            margin-bottom: 1vh;
+        }
+        .value {
+            font-size: 2.5vh;
+            font-weight: bold;
+            margin-top: 1vh;
+        }
+        .pass {
+            color: green;
+        }
+        .fail {
+            color: red;
+        }
+        .icon {
+            font-size: 4vh;
+            margin-bottom: 1vh;
+        }
+        .status-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 1.5vh;
+            font-weight: bold;
+            color: white;
+        }
+        .status-pass {
+            background: green;
+        }
+        .status-fail {
+            background: red;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- ✅ Accessibility Status -->
+        <div class="card">
+            <span class="icon"><i class="fas fa-universal-access"></i></span>
+            <h2>Accessibility</h2>
+            <div class="value" id="accessibilityStatus">Loading...</div>
+        </div>
+
+        <!-- ✅ DPI -->
+        <div class="card">
+            <span class="icon"><i class="fas fa-tachometer-alt"></i></span>
+            <h2>DPI</h2>
+            <div class="value" id="dpiValue">Loading...</div>
+        </div>
+
+        <!-- ✅ Laplacian Variance -->
+        <div class="card">
+            <span class="icon"><i class="fas fa-chart-bar"></i></span>
+            <h2>Laplacian Variance</h2>
+            <div class="value" id="laplacianValue">Loading...</div>
+        </div>
+
+        <!-- ✅ PSNR (Peak Signal-to-Noise Ratio) -->
+        <div class="card">
+            <span class="icon"><i class="fas fa-signal"></i></span>
+            <h2>PSNR</h2>
+            <div class="value" id="psnrValue">Loading...</div>
+        </div>
+
+        <!-- ✅ Resolution -->
+        <div class="card">
+            <span class="icon"><i class="fas fa-expand-arrows-alt"></i></span>
+            <h2>Resolution</h2>
+            <div class="value" id="resolutionValue">Loading...</div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // ✅ Retrieve Resolution Data
+            const resolutionData = JSON.parse(sessionStorage.getItem('resolutionData'));
+
+            console.log("✅ Retrieved Resolution Data:", resolutionData);
+
+            if (!resolutionData) {
+                alert("No resolution data available!");
+                return;
+            }
+
+            // ✅ Populate the values dynamically
+            document.getElementById("dpiValue").innerText = resolutionData.DPI || "N/A";
+            document.getElementById("laplacianValue").innerText = resolutionData["Laplacian Variance"] || "N/A";
+            document.getElementById("psnrValue").innerText = resolutionData.PSNR || "N/A";
+            document.getElementById("resolutionValue").innerText = resolutionData.Resolution ? resolutionData.Resolution.join(" x ") : "N/A";
+
+            // ✅ Handle Accessibility Status (Green if True, Red if False)
+            const accessibilityStatus = document.getElementById("accessibilityStatus");
+            if (resolutionData.Accessible) {
+                accessibilityStatus.innerHTML = `<span class="pass"><i class="fas fa-check-circle"></i> PASS</span>`;
+            } else {
+                accessibilityStatus.innerHTML = `<span class="fail"><i class="fas fa-times-circle"></i> FAIL</span>`;
+            }
+        });
+    </script>
+
+</body>
+</html>
