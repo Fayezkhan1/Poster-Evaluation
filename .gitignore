@@ -2,3 +2,7 @@
 .vscode
 node_modules
 __pycache__
+
+Buffer
+Input
+Output
