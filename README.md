@@ -1,26 +1,14 @@
-# A11Y Poster
+cd "Back End"
+python -m venv .venv
+.venv\Scripts\activate    
+python.exe -m pip install --upgrade pip
+pip install -r requirements.txt
+python -m spacy download en_core_web_sm
+python app.py
 
-A web application for poster evaluation focusing on accessibility standards.
+cd "Front End"
 
-## Features
-
-- Accessibility status checking
-- DPI (Dots Per Inch) analysis
-- Laplacian Variance calculation
-- PSNR (Peak Signal-to-Noise Ratio) measurement
-- Resolution information display
-
-## Project Structure
-
-- `Front End/` - Contains the web interface files
-- `Back End/` - Contains the server-side code and image processing logic
-
-
-
-## Technologies Used
-
-- HTML5
-- CSS3
-- JavaScript
-- Python (Backend)
-- Font Awesome Icons
+git status
+git add .
+git commit -m "quick commit"
+git push

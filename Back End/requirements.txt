@@ -1,0 +1,13 @@
+flask
+flask-cors
+opencv-python
+numpy
+pillow
+pytesseract
+requests
+scikit-image
+spacy
+doclayout-yolo
+huggingface_hub
+ultralytics
+pandas
