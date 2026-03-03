@@ -1,0 +1,151 @@
+.upload-page {
+  min-height: 100vh;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2vh 4vw;
+  border-bottom: 0.3vh solid #e0e0e0;
+  background-color: #fff;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 1vw;
+}
+
+.header-left i {
+  font-size: 3vh;
+  color: #0a3d91;
+}
+
+.header-left h1 {
+  font-size: 2.5vh;
+  color: #0a3d91;
+  margin: 0;
+}
+
+.content {
+  text-align: center;
+  margin-top: 10vh;
+  padding: 0 2vw;
+}
+
+.content h2 {
+  font-size: 4vh;
+  font-weight: bold;
+  color: #0a3d91;
+  margin-bottom: 2vh;
+}
+
+.content p {
+  font-size: 2vh;
+  color: #555;
+  margin-bottom: 5vh;
+}
+
+.upload-box {
+  border: 0.5vh dashed #0a3d91;
+  border-radius: 1.5vh;
+  width: 50vw;
+  max-width: 600px;
+  height: 30vh;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.upload-box:hover {
+  background-color: #e0f7ff;
+}
+
+.upload-box i {
+  font-size: 5vh;
+  color: #0a3d91;
+  margin-bottom: 1.5vh;
+}
+
+.upload-title {
+  font-size: 2.2vh;
+  font-weight: bold;
+  margin-bottom: 1vh;
+}
+
+.upload-box button {
+  background-color: #0a3d91;
+  color: white;
+  border: none;
+  padding: 1.5vh 3vw;
+  border-radius: 0.8vh;
+  font-size: 2vh;
+  cursor: pointer;
+  margin-top: 2vh;
+}
+
+.upload-box button:hover {
+  background-color: #083070;
+}
+
+.file-container {
+  width: 50vw;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.file-info {
+  display: flex;
+  align-items: center;
+  gap: 1vw;
+  padding: 1.5vh;
+  border: 0.3vh solid #0a3d91;
+  border-radius: 1.5vh;
+  background: white;
+}
+
+.file-info i {
+  font-size: 2.5vh;
+  color: #0a3d91;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 3vh;
+  background-color: #e0e0e0;
+  border-radius: 1.5vh;
+  overflow: hidden;
+  margin-top: 2vh;
+}
+
+.progress-fill {
+  height: 100%;
+  background-color: #0a3d91;
+  transition: width 2s ease-in-out;
+}
+
+.analyze-btn {
+  background-color: #0a3d91;
+  color: white;
+  border: none;
+  padding: 1.5vh 4vw;
+  border-radius: 0.8vh;
+  font-size: 2vh;
+  cursor: pointer;
+  margin-top: 2vh;
+  width: 100%;
+}
+
+.analyze-btn:hover:not(:disabled) {
+  background-color: #083070;
+}
+
+.analyze-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
