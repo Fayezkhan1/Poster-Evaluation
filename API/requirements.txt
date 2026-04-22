@@ -11,3 +11,5 @@ doclayout-yolo
 huggingface_hub
 ultralytics
 pandas
+google-genai
+python-dotenv
